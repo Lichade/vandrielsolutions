@@ -12,19 +12,45 @@ import { AboutComponent } from './about/about.component';
 
 import { DataService } from './data.service';
 
+import { MaterialModule } from './material.module';
+
+import { environment } from '../environments/environment';
+export const firebaseConfig = environment.firebaseConfig;
+import { AngularFireModule } from 'angularfire2';
+
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { UserProfileComponent } from './user-profile/user-profile.component';
+
+import { CoreModule } from './core/core.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    CoreModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule
   ],
-  providers: [DataService],
-  bootstrap: [AppComponent]
+  providers: [
+    DataService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

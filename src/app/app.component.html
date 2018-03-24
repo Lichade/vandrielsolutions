@@ -1,7 +1,30 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <ul>
   <li><a routerLink="">Home</a></li>
   <li><a routerLink="about/49">About</a></li>
 </ul>
+<br>
+<br>
+<button mat-button>My Button</button>
+<br>
+<br>
+<button mat-fab>Button</button>
+<br>
+<br>
+<button mat-raised-button>Button2</button>
+<br>
+<br>
+<br>
+<br>
+<p>Begin van de Firebase database lijst (notes)</p>
+<div *ngFor="let note of notes | async">
+    <h3>{{ note | json }}</h3>
+</div>
+<p>Einde van de lijst</p>
+
+<br>
+<br>
+<br>
+<br>
+<user-profile></user-profile>
 
 <router-outlet></router-outlet>
